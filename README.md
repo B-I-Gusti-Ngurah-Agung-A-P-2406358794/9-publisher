@@ -9,3 +9,13 @@ The URL "amqp://guest:guest@localhost:5672" being the same in both the publisher
 
 # Image of Running RabbitMQ:
 ![RabbitMQ Screenshot](folder/images/Rabbit-1.png)
+
+# Image of Connection RabbitMQ:
+![RabbitMQ Screenshot](folder/images/Rabbit-2.png)
+
+# Image of Console of Subscriber and Publisher:
+![RabbitMQ Screenshot](folder/images/Rabbit-3.png)
+
+Here, The publisher sent 5 events to RabbitMQ, and RabbitMQ stored them in a queue. The subscriber was already connected and listening, so it received the events one at a time and printed them.
+
+The publisher and subscriber did not communicate directly. RabbitMQ acted as the middleman, which is the main idea of event-driven architecture.
