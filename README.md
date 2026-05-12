@@ -28,3 +28,15 @@ Each spike represents one run of the publisher program. In every run, the publis
 # Image of Slow Subscriber:
 ![RabbitMQ Screenshot](folder/images/Rabbit-5.png)
 The total number of events depends on how many times the publisher program was run. For example, if the publisher was run twice in a short time, then 10 events would be sent to RabbitMQ at once. The number shown simply represents how many events were still waiting in the RabbitMQ queue before the subscriber finished processing them.
+
+# Image of Running 5 subscriber:
+![RabbitMQ Screenshot](folder/images/Rabbit-6.png)
+![RabbitMQ Screenshot](folder/images/Rabbit-7.png)
+
+When there was only 1 subscriber, all messages had to be processed one by one by the same subscriber. Since the subscriber had a 1-second delay, the queue took longer to empty.
+
+When 2 or more subscribers were running at the same time, the messages were shared between them. One subscriber handled some messages, while the other handled the rest. Because they worked at the same time, the queue became empty much faster.
+
+The code can be improved because the publisher always sends the same 5 hardcoded users every time it runs. In a real application, the data should be dynamic, such as coming from user input, a database, or another service.
+
+Also, the publisher does not really know whether the subscriber has received and processed the messages. For production, it would be better to add proper logging, error handling, or confirmation so we can check whether the message was sent and handled successfully.
