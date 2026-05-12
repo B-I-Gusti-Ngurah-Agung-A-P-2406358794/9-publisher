@@ -24,3 +24,7 @@ The publisher and subscriber did not communicate directly. RabbitMQ acted as the
 ![RabbitMQ Screenshot](folder/images/Rabbit-4.png)
 
 Each spike represents one run of the publisher program. In every run, the publisher sent 5 events at the same time to RabbitMQ, creating a short spike in activity. Right after that, the activity quickly returned to 0 because the subscriber immediately received and processed all the events, and the publisher program had already finished running.
+
+# Image of Slow Subscriber:
+![RabbitMQ Screenshot](folder/images/Rabbit-5.png)
+The total number of events depends on how many times the publisher program was run. For example, if the publisher was run twice in a short time, then 10 events would be sent to RabbitMQ at once. The number shown simply represents how many events were still waiting in the RabbitMQ queue before the subscriber finished processing them.
